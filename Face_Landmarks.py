@@ -1,3 +1,4 @@
+# Face Landmarks Using Mediapipe and OpenCV on a Pre-recorded Video
 import cv2
 import mediapipe as mp
 
@@ -5,7 +6,7 @@ import mediapipe as mp
 mp_face_mesh = mp.solutions.face_mesh
 mp_drawing = mp.solutions.drawing_utils
 
-# Start processing the live video
+# Start processing the video
 cap = cv2.VideoCapture("C:/Users/fayzi-dev/Desktop/ComputerVision/my_video.mp4")
 with mp_face_mesh.FaceMesh(
     max_num_faces=1,  # Number of faces 
@@ -33,7 +34,7 @@ with mp_face_mesh.FaceMesh(
                     connection_drawing_spec=mp_drawing.DrawingSpec(color=(0, 255, 0), thickness=1)
                 )
 
-        cv2.imshow('Face Mesh', frame)
+        cv2.imshow('Face Landmarks', frame)
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 
